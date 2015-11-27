@@ -1,0 +1,26 @@
+{
+	"name" : "root",
+	"type": "fixed",
+	
+	"children": [
+		{
+			"name": "firstJoint",
+			"type": "rotation",
+			"position": [3, 0],
+			"rotation": [90],
+			"value"   : 0,
+			"minValue": -10,
+			"maxValue": 10,
+			"children": [
+				{
+					
+					"name" : "finger",
+					"type": "dummy",
+					"position": [5, 0],
+					"children": [
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,58 @@
+{
+	"name" : "root",
+	"type": "fixed",
+	
+	"children": [
+		{
+			"name": "firstJoint",
+			"type": "rotation",
+			"position": [3, 0],
+			"rotation": [90],
+			"value"   : 0,
+			"minValue": -10,
+			"maxValue": 10,
+			"children": [
+				{
+					
+					"name" : "torsoDummy",
+					"type": "dummy",
+					"position": [5, 0],
+					"children": [
+						{
+							"name": "Shoulder",
+							"type": "rotation",
+							"position": [0, 1],
+							"rotation": [180],
+							"value"   : 0,
+							"children": [
+								{
+									"name": "Elbow",
+									"type": "rotation",
+									"position": [1, 0],
+									"rotation": [0],
+									"value"   : 0,
+									"children": [
+										{
+											"name": "Piston",
+											"type": "piston",
+											"position": [1, 0],
+											"value"   : 0,
+											"children": [
+												{
+													"name": "finger",
+													"type": "dummy",
+													"position": [1, 0],
+													"children": []
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,59 @@
+{
+	"name" : "root",
+	"type": "fixed",
+	
+	"children": [
+		{
+			"name": "firstJoint",
+			"type": "dummy",
+			"position": [3, 0],
+			"rotation": [90],
+			"children": [
+				{
+					"name" : "piston1",
+					"type": "piston",
+					"position": [0, 0],
+					"children": [
+						{
+							"name": "piston2",
+							"type": "piston",
+							"position": [1, 0],
+							"rotation": -90,
+							"value"   : 0,
+							"minValue": 0,
+							"maxValue": 2,
+							"children": [
+								{
+									"name" : "piston3",
+									"type": "piston",
+									"position": [0, 0],
+									"rotation": 90,
+									"children": [
+										{
+											"name": "piston4",
+											"type": "piston",
+											"position": [1, 0],
+											"rotation": -90,
+											"value"   : 0,
+											"minValue": 0,
+											"maxValue": 2,
+											"children": [
+												{
+													"name": "finger",
+													"type": "dummy",
+													"position": [1, 0],
+													"children": []
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
+
