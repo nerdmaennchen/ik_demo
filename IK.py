@@ -102,24 +102,3 @@ def solve_best(robot, taskGroups, epsilon=1, nullspaceEpsilon=1e-10, constraints
 		robot.setConfiguration(robot.getConfiguration() + dq_)
 	
 	return dq
-
-def stuff():
-	## handle "hard" constraints (like angle limits)
-	dq_preliminary = Ny * jacobian_pinv * bigError         # change we introduce with this batch
-	q_preliminary  = curValuesVec + dq + dq_preliminary    # current configuration + change from other batches
-	q_constraintError = np.matrix(np.zeros((numCols, 1)))  # this is where we hold the error
-	dq_corrected = dq_preliminary                          # this is the change we actually apply
-	
-	for constraint in constraints:
-		q_constraintError += constraint.getError(q_preliminary) # += is actually wrong here... something like max and min should be used
-	
-	## we need the "inverse" of the errors... but we cannot allways divide this is a woraround 
-	nyDiag = np.diag(Ny)
-	for i in range(0, nyDiag.shape[0]):
-		if nyDiag[i] > nullspaceEpsilon:
-			q_constraintError[i, 0] = q_constraintError[i, 0] / nyDiag[i]
-		else:
-			q_constraintError[i, 0] = 0
-	dq_corrected += Ny * q_constraintError # remove the constraint error
-	dq  += dq_corrected                                    # apply the configuration change of the current taskGroup
-	
